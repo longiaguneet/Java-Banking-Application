@@ -1,0 +1,86 @@
+
+
+import java.util.Scanner;
+
+public class DriverClass {
+
+	public static void main(String[] args) {
+
+	Scanner scan = new Scanner(System.in);
+	
+	Customer customer[] = new Customer[6]; //Creating an array for 6 elements 
+	
+	String name = ""; 
+	String max = "";
+	String min =" ";
+	
+	double balance = 0;
+	double avg = 0;
+	double temp = 0;
+	
+	System.out.println("For 6 customers enter the name and in the next line the balance"); 
+	for (int i = 0; i < customer.length; i++) 
+	{	
+		name = scan.next(); // Asking the user to enter a name and a balance for each person
+		balance = scan.nextDouble();
+		customer[i] = new Customer(name, balance); // Creating customer - part of the array
+	}
+	
+	/////////////////// Searching for customers who have less than $150 /////////////////
+	
+	System.out.println("\nSearch for all customers who have less than $150 ");
+	for (int i = 0; i < customer.length; i++) 
+	{
+		if (customer[i].getbalance() < 150) //gets the balance for the customers who have less than $150
+		{ 
+			System.out.println(customer[i].getname()); //prints the name of customer who had less than $150
+		}
+	}
+				
+	////////////////// Finding avg balance /////////////////////////	
+			
+	for (int i = 0; i < customer.length; i++)
+	{
+		avg = avg + customer[i].getbalance();
+	}
+	System.out.println("\nThe average balance is: " + avg/6);	
+			
+	//////////////// Finding highest balance ///////////////
+
+	temp = customer[0].getbalance();
+	
+	for (int i = 0; i < customer.length; i ++) 
+	{
+		if (customer[i].getbalance() >= temp) 
+		{		
+			temp = customer[i].getbalance();
+			max = customer[i].getname();			
+		}		
+	}
+	
+	System.out.println("\nThe customer with the highest balance is: " + max);
+
+	
+	/////////////// Finding lowest balance //////////////////////
+	
+	temp = customer[0].getbalance();
+	for (int i = 0; i < customer.length; i ++) {
+		
+		if (customer[i].getbalance() <= temp) {
+			temp = customer[i].getbalance();
+			min = customer[i].getname();
+		}
+	}
+	
+	System.out.println("\nThe customer with the lowest balance is: " + min);
+	System.out.println("\nShow all accounts after a 15% balance increase");
+
+	/////////////// accounts after the 15% increase balance ///////////////////
+		for (int i= 0; i< customer.length; i++) 
+		{
+			customer[i].addPercentage();
+		}
+					
+	
+	}		
+		}

@@ -1,0 +1,34 @@
+
+public class Customer {
+
+		private String name;
+		private double balance; 
+		
+		public Customer(String name, double balance) 
+		{
+			this.name = name;
+			this.balance = balance;		
+		}
+		
+		public Customer() {} // constructor 
+		
+		public String toString() {
+			return this.name + balance;
+		}
+				
+		public void addPercentage() // 15% increase in accounts 
+		{
+			this.balance = balance + (0.15*balance);
+			System.out.println(name + " has $" + balance);
+		}
+
+		public double getbalance() //getting the balance and name
+		{
+			return this.balance;
+		}
+
+		public String getname() 
+		{
+			return this.name;
+		}
+}
